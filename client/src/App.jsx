@@ -1,7 +1,16 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 const App = () => {
-  return <div className="text-blue-500 bg-red-500 p-4">App</div>;
+  return (
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      App
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </div>
+  );
 };
 
 export default App;

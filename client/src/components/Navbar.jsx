@@ -62,7 +62,12 @@ const Navbar = () => {
           visible ? "w-full" : "w-0"
         }`}
       >
-        SideBar menu
+        <div className="flex flex-col text-gray-600">
+          <div className="flex items-center gap-4 p-3 cursor-pointer">
+            <img className="h-4 rotate-180" src={assets.dropdown_icon} alt="" />
+            <p>Back</p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
+import ProductItem from "../components/Productitem";
 
 const Collection = () => {
+  const { products } = useContext(ShopContext);
+
   const [showFilter, setShowFilter] = useState(false);
+  const [filterProducts, setFilterProducts] = useState([]);
+
+  useEffect(() => {
+    setFilterProducts(products);
+  }, [products]);
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
@@ -75,8 +83,22 @@ const Collection = () => {
             <option value="high-low">Sort by: High to Low</option>
           </select>
         </div>
+
+        {/* Map Products */}
+        <div>
+          {filterProducts.map((item, index) => (
+            <ProductItem
+              key={index}
+              name={item.name}
+              id={item._id}
+              price={item.price}
+              image={item.image}
+            />
+          ))}{" "}
+        </div>
       </div>{" "}
     </div>
   );
 };
+
 export default Collection;

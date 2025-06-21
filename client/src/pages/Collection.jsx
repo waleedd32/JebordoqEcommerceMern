@@ -5,10 +5,11 @@ import Title from "../components/Title";
 import ProductItem from "../components/Productitem";
 
 const Collection = () => {
-  const { products } = useContext(ShopContext);
-
+  const { products, search, showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
 
   useEffect(() => {
     setFilterProducts(products);
@@ -85,7 +86,7 @@ const Collection = () => {
         </div>
 
         {/* Map Products */}
-        <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
           {filterProducts.map((item, index) => (
             <ProductItem
               key={index}

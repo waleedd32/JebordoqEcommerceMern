@@ -94,6 +94,31 @@ const Product = () => {
           </div>
         </div>
       </div>
+      {/* ---------- Description & Review Section ---------- */}
+      <div className="mt-20">
+        <div className="flex">
+          <b className="border px-5 py-3 text-sm">Description</b>
+          <p className="border px-5 py-3 text-sm">Reviews (122)</p>
+        </div>
+        <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
+          <p>
+            E-commerce websites are digital platforms that enable the buying and
+            selling of products or services online. Acting as virtual
+            marketplaces, these sites allow businesses and individuals to
+            display their offerings, connect with customers, and complete
+            transactions without the need for a physical storefront. The
+            popularity of e-commerce continues to grow due to its convenience,
+            accessibility, and ability to reach a broad audience.
+          </p>
+          <p>
+            Typically, e-commerce sites present each product with detailed
+            information, including descriptions, images, prices, and available
+            options like sizes or colors. Each product is showcased on its own
+            page to provide customers with relevant details that assist in
+            making informed purchasing decisions.
+          </p>
+        </div>
+      </div>
     </div>
   ) : (
     <div className="opacity-0"></div>

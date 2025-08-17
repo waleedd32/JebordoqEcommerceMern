@@ -3,7 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 
 const Cart = () => {
-  const { products, cartItems } = useContext(ShopContext);
+  const { products, currency, cartItems } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
@@ -47,6 +47,17 @@ const Cart = () => {
                   src={productData.image[0]}
                   alt=""
                 />
+                <div>
+                  <p className="text-xs sm:text-lg font-medium">
+                    {productData.name}
+                  </p>
+                  <div className="flex items-center gap-5 mt-2">
+                    <p>
+                      {currency}
+                      {productData.price}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           );

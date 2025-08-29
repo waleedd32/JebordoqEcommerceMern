@@ -5,7 +5,7 @@ import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
 
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity } =
+  const { products, currency, cartItems, updateQuantity, navigate } =
     useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
@@ -27,12 +27,12 @@ const Cart = () => {
       setCartData(tempData);
     }
   }, [cartItems, products]);
+
   return (
     <div className="border-t pt-14">
       <div className="text-2xl mb-3">
         <Title text1="YOUR" text2="CART" />
       </div>
-
       <div>
         {cartData.map((item, index) => {
           const productData = products.find(

@@ -38,6 +38,44 @@ const PlaceOrder = () => {
           type="text"
           placeholder="Street"
         />
+        <div className="flex gap-3">
+          <input
+            required
+            name="city"
+            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+            type="text"
+            placeholder="City"
+          />
+          <input
+            name="state"
+            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+            type="text"
+            placeholder="State"
+          />
+        </div>
+        <div className="flex gap-3">
+          <input
+            required
+            name="zipcode"
+            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+            type="number"
+            placeholder="Zipcode"
+          />
+          <input
+            required
+            name="country"
+            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+            type="text"
+            placeholder="Country"
+          />
+        </div>
+        <input
+          required
+          name="phone"
+          className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+          type="number"
+          placeholder="Phone"
+        />
       </div>
     </div>
   );

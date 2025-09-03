@@ -1,3 +1,4 @@
+import CartTotal from "../components/CartTotal";
 import Title from "../components/Title";
 
 const PlaceOrder = () => {
@@ -76,6 +77,12 @@ const PlaceOrder = () => {
           type="number"
           placeholder="Phone"
         />
+      </div>
+      {/* ------------- Right Side ------------- */}
+      <div className="mt-8 min-w-80">
+        <div className="mt-8">
+          <CartTotal />
+        </div>
       </div>
     </div>
   );

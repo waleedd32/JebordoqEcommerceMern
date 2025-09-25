@@ -32,8 +32,11 @@ const Login = () => {
         placeholder="Password"
         required
       />
+
+      <div className="w-full flex justify-between text-sm mt-[-8px]">
+        <p className="cursor-pointer">Forgot your password?</p>
+      </div>
     </form>
   );
 };
-
 export default Login;

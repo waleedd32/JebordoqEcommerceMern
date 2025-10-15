@@ -1,6 +1,7 @@
 import React from "react";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
+import NewsletterBox from "../components/NewsletterBox";
 
 const Contact = () => {
   return (
@@ -22,8 +23,19 @@ const Contact = () => {
           <p className="text-gray-500">
             Tel: (415) 555-0132 <br /> Email: admin@forever.com
           </p>
+          <p className="font-semibold text-xl text-gray-600">
+            Careers at Forever
+          </p>
+          <p className="text-gray-500">
+            Learn more about our teams and job openings.
+          </p>
+          <button className="border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500">
+            Join Our Team
+          </button>
         </div>
       </div>
+
+      <NewsletterBox />
     </div>
   );
 };

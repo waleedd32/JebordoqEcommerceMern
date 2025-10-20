@@ -1,10 +1,20 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import "dotenv/config";
+import mongoose from "mongoose";
 
 // App Config
 const app = express();
-const port = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
+
+mongoose
+  .connect(process.env.MONGO)
+  .then(() => {
+    console.log("Connected to MongoDB!");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 // middlewares
 app.use(express.json());
@@ -15,4 +25,4 @@ app.get("/", (req, res) => {
   res.send("API Working");
 });
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

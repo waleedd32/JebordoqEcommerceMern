@@ -1,12 +1,12 @@
 import express from "express";
 import upload from "../middleware/multer.js";
 import { v2 as cloudinary } from "cloudinary";
+import productModel from "../models/productModel.js";
 
 const productRouter = express.Router();
 
 productRouter.post(
   "/add",
-
   upload.fields([
     { name: "image1", maxCount: 1 },
     { name: "image2", maxCount: 1 },
@@ -43,18 +43,20 @@ productRouter.post(
         })
       );
 
-      console.log(
-        "body: ",
+      const productData = {
         name,
         description,
-        price,
         category,
+        price: Number(price),
         subCategory,
-        sizes,
-        bestseller
-      );
+        bestseller: bestseller === "true" ? true : false,
+        sizes: JSON.parse(sizes),
+        image: imagesUrl,
+        date: Date.now(),
+      };
 
-      console.log("imagesUrl", imagesUrl);
+      console.log("productData", productData);
+
       res.json({ success: true, message: "Product Added" });
     } catch (error) {
       console.log(error);

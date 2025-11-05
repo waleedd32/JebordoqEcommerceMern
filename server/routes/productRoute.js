@@ -57,6 +57,9 @@ productRouter.post(
 
       console.log("productData", productData);
 
+      const product = new productModel(productData);
+      await product.save();
+
       res.json({ success: true, message: "Product Added" });
     } catch (error) {
       console.log(error);
@@ -64,4 +67,5 @@ productRouter.post(
     }
   }
 );
+
 export default productRouter;

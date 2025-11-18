@@ -2,11 +2,13 @@ import express from "express";
 import upload from "../middleware/multer.js";
 import { v2 as cloudinary } from "cloudinary";
 import productModel from "../models/productModel.js";
+import adminAuth from "../middleware/adminAuth.js";
 
 const productRouter = express.Router();
 
 productRouter.post(
   "/add",
+  adminAuth,
   upload.fields([
     { name: "image1", maxCount: 1 },
     { name: "image2", maxCount: 1 },
@@ -80,7 +82,7 @@ productRouter.get("/list", async (req, res) => {
 });
 
 // function for removing product
-productRouter.post("/remove", async (req, res) => {
+productRouter.post("/remove", adminAuth, async (req, res) => {
   try {
     await productModel.findByIdAndDelete(req.body.id);
     res.json({ success: true, message: "Product Removed" });

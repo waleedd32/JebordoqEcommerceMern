@@ -14,6 +14,7 @@ const Login = ({ setToken }) => {
         email,
         password,
       });
+      console.log("log in response", response);
       if (response.data.success) {
         setToken(response.data.token);
       } else {

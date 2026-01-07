@@ -25,9 +25,23 @@ const Add = ({ token }) => {
           </label>
         </div>
       </div>
-      <div>
+      <div className="w-full">
         <p className="mb-2">Product name</p>
-        <input type="text" placeholder="Type here" required />
+        <input
+          className="w-full max-w-[500px] px-3 py-2"
+          type="text"
+          placeholder="Type here"
+          required
+        />
+      </div>
+      <div className="w-full">
+        <p className="mb-2">Product description</p>
+        <textarea
+          className="w-full max-w-[500px] px-3 py-2"
+          type="text"
+          placeholder="write content here"
+          required
+        />
       </div>
     </form>
   );

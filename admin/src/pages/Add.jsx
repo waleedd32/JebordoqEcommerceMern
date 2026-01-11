@@ -61,6 +61,14 @@ const Add = ({ token }) => {
             <option value="Winterwear">Winterwear</option>
           </select>
         </div>
+        <div>
+          <p className="mb-2">Product Price</p>
+          <input
+            className="w-full px-3 py-2 sm:w-[120px]"
+            type="Number"
+            placeholder="25"
+          />
+        </div>
       </div>
     </form>
   );

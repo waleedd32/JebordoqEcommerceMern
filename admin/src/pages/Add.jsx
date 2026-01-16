@@ -70,6 +70,30 @@ const Add = ({ token }) => {
           />
         </div>
       </div>
+      <div>
+        <p>Product Sizes</p>
+        <div>
+          <div>
+            <p>S</p>
+          </div>
+
+          <div>
+            <p>M</p>
+          </div>
+
+          <div>
+            <p>L</p>
+          </div>
+
+          <div>
+            <p>XL</p>
+          </div>
+
+          <div>
+            <p>XXL</p>
+          </div>
+        </div>
+      </div>
     </form>
   );
 };

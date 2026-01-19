@@ -71,26 +71,26 @@ const Add = ({ token }) => {
         </div>
       </div>
       <div>
-        <p>Product Sizes</p>
-        <div>
+        <p className="mb-2">Product Sizes</p>
+        <div className="flex gap-3">
           <div>
-            <p>S</p>
+            <p className="bg-slate-200 px-3 py-1 cursor-pointer">S</p>
           </div>
 
           <div>
-            <p>M</p>
+            <p className="bg-slate-200 px-3 py-1 cursor-pointer">M</p>
           </div>
 
           <div>
-            <p>L</p>
+            <p className="bg-slate-200 px-3 py-1 cursor-pointer">L</p>
           </div>
 
           <div>
-            <p>XL</p>
+            <p className="bg-slate-200 px-3 py-1 cursor-pointer">XL</p>
           </div>
 
           <div>
-            <p>XXL</p>
+            <p className="bg-slate-200 px-3 py-1 cursor-pointer">XXL</p>
           </div>
         </div>
       </div>

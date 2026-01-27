@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { assets } from "../assets/assets";
 
 const Add = ({ token }) => {
+  const [image1, setImage1] = useState(false);
+
   return (
     <form className="flex flex-col w-full items-start gap-3">
       <div>
@@ -100,6 +102,9 @@ const Add = ({ token }) => {
           Add to bestseller
         </label>
       </div>
+      <button type="submit" className="w-28 py-3 mt-4 bg-black text-white">
+        ADD
+      </button>
     </form>
   );
 };

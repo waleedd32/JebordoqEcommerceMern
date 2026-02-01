@@ -3,6 +3,17 @@ import { assets } from "../assets/assets";
 
 const Add = ({ token }) => {
   const [image1, setImage1] = useState(false);
+  const [image2, setImage2] = useState(false);
+  const [image3, setImage3] = useState(false);
+  const [image4, setImage4] = useState(false);
+
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [category, setCategory] = useState("Men");
+  const [subCategory, setSubCategory] = useState("Topwear");
+  const [bestseller, setBestseller] = useState(false);
+  const [sizes, setSizes] = useState([]);
 
   return (
     <form className="flex flex-col w-full items-start gap-3">

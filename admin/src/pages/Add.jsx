@@ -77,6 +77,8 @@ const Add = ({ token }) => {
       <div className="w-full">
         <p className="mb-2">Product name</p>
         <input
+          onChange={(e) => setName(e.target.value)}
+          value={name}
           className="w-full max-w-[500px] px-3 py-2"
           type="text"
           placeholder="Type here"
@@ -86,6 +88,8 @@ const Add = ({ token }) => {
       <div className="w-full">
         <p className="mb-2">Product description</p>
         <textarea
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
           className="w-full max-w-[500px] px-3 py-2"
           type="text"
           placeholder="write content here"

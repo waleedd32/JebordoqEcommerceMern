@@ -123,6 +123,8 @@ const Add = ({ token }) => {
         <div>
           <p className="mb-2">Product Price</p>
           <input
+            onChange={(e) => setPrice(e.target.value)}
+            value={price}
             className="w-full px-3 py-2 sm:w-[120px]"
             type="Number"
             placeholder="25"
@@ -132,7 +134,15 @@ const Add = ({ token }) => {
       <div>
         <p className="mb-2">Product Sizes</p>
         <div className="flex gap-3">
-          <div>
+          <div
+            onClick={() =>
+              setSizes((prev) =>
+                prev.includes("S")
+                  ? prev.filter((item) => item !== "S")
+                  : [...prev, "S"]
+              )
+            }
+          >
             <p className="bg-slate-200 px-3 py-1 cursor-pointer">S</p>
           </div>
 

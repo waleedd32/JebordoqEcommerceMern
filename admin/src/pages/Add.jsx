@@ -143,7 +143,13 @@ const Add = ({ token }) => {
               )
             }
           >
-            <p className="bg-slate-200 px-3 py-1 cursor-pointer">S</p>
+            <p
+              className={`${
+                sizes.includes("S") ? "bg-pink-100" : "bg-slate-200"
+              } px-3 py-1 cursor-pointer`}
+            >
+              S
+            </p>
           </div>
 
           <div

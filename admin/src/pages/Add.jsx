@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
+import axios from "axios";
+import { backendUrl } from "../App";
 
 const Add = ({ token }) => {
   const [image1, setImage1] = useState(false);
@@ -15,8 +17,25 @@ const Add = ({ token }) => {
   const [bestseller, setBestseller] = useState(false);
   const [sizes, setSizes] = useState([]);
 
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append("name", name);
+
+    const response = await axios.post(
+      backendUrl + "/api/product/add",
+      formData,
+      { headers: { token } }
+    );
+  };
+
   return (
-    <form className="flex flex-col w-full items-start gap-3">
+    <form
+      onSubmit={onSubmitHandler}
+      className="flex flex-col w-full items-start gap-3"
+    >
       <div>
         <p className="mb-2">Upload Image</p>
         <div className="flex gap-2">

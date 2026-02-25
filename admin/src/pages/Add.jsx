@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import axios from "axios";
 import { backendUrl } from "../App";
+import { toast } from "react-toastify";
 
 const Add = ({ token }) => {
   const [image1, setImage1] = useState(false);
@@ -20,15 +21,31 @@ const Add = ({ token }) => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
+    try {
+      const formData = new FormData();
 
-    formData.append("name", name);
+      formData.append("name", name);
+      formData.append("description", description);
+      formData.append("price", price);
+      formData.append("category", category);
+      formData.append("subCategory", subCategory);
+      formData.append("bestseller", bestseller);
+      formData.append("sizes", JSON.stringify(sizes));
 
-    const response = await axios.post(
-      backendUrl + "/api/product/add",
-      formData,
-      { headers: { token } }
-    );
+      image1 && formData.append("image1", image1);
+      image2 && formData.append("image2", image2);
+      image3 && formData.append("image3", image3);
+      image4 && formData.append("image4", image4);
+
+      const response = await axios.post(
+        backendUrl + "/api/product/add",
+        formData,
+        { headers: { token } }
+      );
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
 
   return (

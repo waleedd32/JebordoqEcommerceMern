@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { backendUrl } from "../App";
+import { backendUrl, currency } from "../App";
 import axios from "axios";
+import { toast } from "react-toastify";
 
-const List = () => {
+const List = ({ token }) => {
   const [list, setList] = useState([]);
 
   const fetchList = async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
-      console.log(response.data);
-    } catch (error) {}
+      if (response.data.success) {
+        setList(response.data.products);
+        console.log("List data", response.data.products);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
 
   useEffect(() => {

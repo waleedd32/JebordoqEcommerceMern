@@ -25,7 +25,22 @@ const List = ({ token }) => {
     fetchList();
   }, []);
 
-  return <div>List</div>;
+  return (
+    <div>
+      {" "}
+      <p className="mb-2">All Products List</p>
+      <div>
+        {/* ------- List Table Title -------- */}
+        <div>
+          <b>Image</b>
+          <b>Name</b>
+          <b>Category</b>
+          <b>Price</b>
+          <b>Action</b>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default List;

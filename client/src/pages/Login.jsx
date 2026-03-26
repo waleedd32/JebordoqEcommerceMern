@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { ShopContext } from "../context/ShopContext";
 
 const Login = () => {
   const [currentState, setCurrentState] = useState("Login");
+  const { token, setToken, navigate, backendUrl } = useContext(ShopContext);
 
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");

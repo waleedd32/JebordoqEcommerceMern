@@ -103,6 +103,24 @@ const ShopContextProvider = (props) => {
       toast.error(error.message);
     }
   };
+
+  const getUserCart = async (token) => {
+    try {
+      const response = await axios.post(
+        backendUrl + "/api/cart/get",
+        {},
+        { headers: { token } }
+      );
+      if (response.data.success) {
+        setCartItems(response.data.cartData);
+        console.log(response.data.cartData);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  };
+
   useEffect(() => {
     getProductsData();
   }, []);

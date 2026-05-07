@@ -32,25 +32,18 @@ cartRouter.post("/add", authUser, async (req, res) => {
   }
 });
 
-// fake data
-let userData = {
-  cartData: {
-    item1: {
-      M: 1,
-    },
-  },
-};
-
-// update user cart
-cartRouter.post("/update", async (req, res) => {
+//update user cart
+cartRouter.post("/update", authUser, async (req, res) => {
   try {
-    const { itemId, size, quantity } = req.body;
+    const { userId, itemId, size, quantity } = req.body;
 
-    let cartData = userData.cartData;
+    const userData = await userModel.findById(userId);
+    let cartData = await userData.cartData;
 
     cartData[itemId][size] = quantity;
 
-    res.json({ success: true, message: "Cart Updated", cartData });
+    await userModel.findByIdAndUpdate(userId, { cartData });
+    res.json({ success: true, message: "Cart Updated" });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
